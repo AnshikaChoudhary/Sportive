@@ -102,7 +102,7 @@ const Login = () => {
           <Text style={styles.underlineText}>Forgot Password?</Text>
         </View>
         <Btn
-          style={styles.loginBtn}
+          style={[styles.loginBtn, { borderRadius: 20 }]}
           TextStyles={{ fontSize: 16, color: "#FFF" }}
           title="Login"
           onPress={() => navigation.navigate("TabLayout")}
@@ -169,10 +169,10 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   loginBtn: {
-    width: "90%",
+    width: "100%",
     paddingVertical: 12,
     alignItems: "center",
-    marginVertical: 30,
+    // marginVertical: 30,
   },
   orLogin: {
     color: "#FFFFFF99",

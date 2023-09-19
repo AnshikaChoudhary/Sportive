@@ -12,6 +12,8 @@ import DetailPage from "../screens/DetailPage";
 import CmpltUrProfile from "../screens/Register/cmpltUrProfile";
 import Feed from "../screens/homeScreens/feed";
 import Live from "../screens/homeScreens/Live";
+import PrivacyPolicy from "../screens/PrivacyPolicy";
+import TermsConditions from "../screens/TermsConditions";
 const Stack = createNativeStackNavigator();
 
 const Layout = () => {
@@ -33,6 +35,8 @@ const Layout = () => {
         <Stack.Screen name="Complete Your Profile" component={CmpltUrProfile} />
         <Stack.Screen name="Feed" component={Feed} />
         <Stack.Screen name="Live" component={Live} />
+        <Stack.Screen name="Terms and Conditions" component={TermsConditions} />
+        <Stack.Screen name="Privacy Policy" component={PrivacyPolicy} />
       </Stack.Group>
     </Stack.Navigator>
   );

@@ -1,26 +1,44 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Text, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ImageBackground,
+} from "react-native";
 import LinearGradient from "react-native-linear-gradient";
+import { images } from "../../assets/images";
 
 function Btn(Props) {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
-      style={[styles.btnLogin, Props.style]}
       onPress={Props.onPress}
+      style={{
+        marginVertical: 30,
+        //  borderRadius: 10,
+        //borderWidth: 1,
+        // borderColor: "#fff",
+        width: "90%",
+      }}
     >
-      <Text style={[styles.btn, Props.TextStyles]}>{Props.title}</Text>
+      <ImageBackground
+        source={images.BtnBackground}
+        resizeMode="cover"
+        style={[styles.btnLogin, Props.style]}
+      >
+        <Text style={[styles.btn, Props.TextStyles]}>{Props.title}</Text>
+      </ImageBackground>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   btnLogin: {
-    backgroundColor: "#004225",
+    // backgroundColor: "#004225",
     // textAlign: "center",
-    borderRadius: 10,
-    // alignSelf: "center",
+    borderRadius: 20,
+    alignSelf: "center",
   },
   btn: {
     textAlign: "center",

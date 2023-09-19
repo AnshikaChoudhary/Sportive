@@ -9,4 +9,8 @@ export const images = {
   Person: require("../assets/Images/person.png"),
   Forum: require("../assets/Images/forum.png"),
   VideoPhoto: require("../assets/Images/groupVideo.png"),
+  Background: require("../assets/Images/background.png"),
+  BtnBackground: require("../assets/Images/btnBackground.jpg"),
+  HockeyPlayers: require("../assets/Images/hockey-players.png"),
+  SoccerPlayer: require("../assets/Images/soccer-player.png"),
 };

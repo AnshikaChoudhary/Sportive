@@ -8,8 +8,9 @@ function InputBox(Props) {
   return (
     <View style={styles.input}>
       <TextInput
+        placeholderTextColor="#FFFFFF80"
         placeholder={Props.placeholder}
-        style={[styles.entry, Props.style]}
+        style={[styles.entry, Props.style, styles.inputStyle]}
       />
     </View>
   );
@@ -22,13 +23,10 @@ const styles = StyleSheet.create({
   },
   entry: {
     fontSize: 16,
-    // marginVertical: 10,
     backgroundColor: "#FFFFFF1A",
     borderRadius: 10,
     padding: 10,
     fontWeight: "500",
-    color: "#FFFFFF99",
-    // width: "95%",
   },
 });
 export default InputBox;

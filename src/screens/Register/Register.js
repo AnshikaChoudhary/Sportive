@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   loginBtn: {
-    width: "90%",
+    width: "100%",
     paddingVertical: 12,
     alignItems: "center",
     marginVertical: 30,

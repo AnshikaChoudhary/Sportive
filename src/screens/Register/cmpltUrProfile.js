@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   loginBtn: {
-    width: "90%",
+    width: "100%",
     paddingVertical: 12,
     alignItems: "center",
     marginVertical: 30,
