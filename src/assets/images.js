@@ -13,4 +13,7 @@ export const images = {
   BtnBackground: require("../assets/Images/btnBackground.jpg"),
   HockeyPlayers: require("../assets/Images/hockey-players.png"),
   SoccerPlayer: require("../assets/Images/soccer-player.png"),
+  Post1: require("../assets/Images/post-1.png"),
+  Post2: require("../assets/Images/post-2.png"),
+  Post3: require("../assets/Images/post-3.png"),
 };

@@ -11,7 +11,7 @@ const LikeCmntShare = (props) => {
         <TouchableOpacity style={styles.circle}>
           <Icon
             name="thumb-up"
-            size={25}
+            size={20}
             onPress={() => setIsEnabled((value) => !value)}
             color={isEnabled ? "#E254A4" : "#fff"}
             style={{ margin: 5 }}
@@ -21,7 +21,7 @@ const LikeCmntShare = (props) => {
       </View>
       <View style={{ flexDirection: "column", alignItems: "center" }}>
         <TouchableOpacity style={styles.circle}>
-          <Icon name="chat" size={25} color="#fff" style={{ margin: 5 }} />
+          <Icon name="chat" size={20} color="#fff" style={{ margin: 5 }} />
         </TouchableOpacity>
         {/* <Text style={styles.texting}>6.3K</Text> */}
       </View>
@@ -33,7 +33,7 @@ const LikeCmntShare = (props) => {
       </View>
       <View style={{ flexDirection: "column", alignItems: "center" }}>
         <TouchableOpacity style={styles.circle}>
-          <Icon name="send" size={25} color="#fff" style={{ margin: 5 }} />
+          <Icon name="send" size={20} color="#fff" style={{ margin: 5 }} />
         </TouchableOpacity>
         {/* <Text style={styles.texting}>150</Text> */}
       </View>

@@ -28,7 +28,13 @@ export default function TabLayout() {
       <Tab.Group
         screenOptions={{
           tabBarShowLabel: false,
+          tabBarActiveBackgroundColor: "#004225",
+          tabBarItemStyle: { borderRadius: 100, margin: 10 },
           tabBarStyle: { backgroundColor: "#110026" },
+          headerStyle: {
+            backgroundColor: "#110026",
+          },
+          headerTintColor: "#FFFFFF",
         }}
       >
         <Tab.Screen
@@ -39,7 +45,7 @@ export default function TabLayout() {
             tabBarIcon: ({ focused }) => (
               <Icon
                 name="home"
-                size={30}
+                size={25}
                 color={focused ? "#fff" : "#004225"}
               />
             ),
@@ -49,11 +55,18 @@ export default function TabLayout() {
           name="Chats"
           component={Chats}
           options={{
-            headerShown: false,
+            headerLeft: (props) => (
+              <Icon
+                name="arrow-left"
+                size={25}
+                color="#FFFFFF80"
+                onPress={() => navigation.goBack()}
+              />
+            ),
             tabBarIcon: ({ focused }) => (
               <Icon
                 name="account-multiple-plus"
-                size={30}
+                size={25}
                 color={focused ? "#fff" : "#004225"}
               />
             ),
@@ -63,12 +76,18 @@ export default function TabLayout() {
           name="Profile"
           component={Profile}
           options={{
-            headerShown: false,
-            headerTintColor: "#004225",
+            headerLeft: (props) => (
+              <Icon
+                name="arrow-left"
+                size={25}
+                color="#FFFFFF80"
+                onPress={() => navigation.goBack()}
+              />
+            ),
             tabBarIcon: ({ focused }) => (
               <Icon
                 name="account"
-                size={30}
+                size={25}
                 color={focused ? "#fff" : "#004225"}
               />
             ),
@@ -78,8 +97,14 @@ export default function TabLayout() {
           name="Notification"
           component={Notification}
           options={{
-            headerShown: false,
-            headerTintColor: "#004225",
+            headerLeft: (props) => (
+              <Icon
+                name="arrow-left"
+                size={25}
+                color="#FFFFFF80"
+                onPress={() => navigation.goBack()}
+              />
+            ),
             tabBarIcon: ({ focused }) => (
               <Icon
                 name="bell-ring"
@@ -93,9 +118,16 @@ export default function TabLayout() {
           name="Setting"
           component={Setting}
           options={{
-            headerShown: false,
+            headerLeft: (props) => (
+              <Icon
+                name="arrow-left"
+                size={25}
+                color="#FFFFFF80"
+                onPress={() => navigation.goBack()}
+              />
+            ),
             tabBarIcon: ({ focused }) => (
-              <Icon name="cog" size={30} color={focused ? "#fff" : "#004225"} />
+              <Icon name="cog" size={25} color={focused ? "#fff" : "#004225"} />
             ),
           }}
         />

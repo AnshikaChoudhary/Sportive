@@ -22,8 +22,6 @@ const Layout = () => {
     <Stack.Navigator>
       <Stack.Group screenOptions={{ headerShown: false }}>
         <Stack.Screen name="DetailPage" component={DetailPage} />
-        {/* <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Register" component={Register} /> */}
         <Stack.Screen name="TabLayout" component={TabLayout} />
       </Stack.Group>
       <Stack.Group
