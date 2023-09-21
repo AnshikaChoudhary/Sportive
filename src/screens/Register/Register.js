@@ -9,12 +9,13 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import { images } from "../../assets/images";
 import Btn from "../../components/TochableOpacity/btn";
 import InputBox from "../../components/inputBox/inputBox";
 import HoriLine from "../../components/horiLine/HoriLine";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import Photo from "../../components/import/Photo";
 
 const Register = () => {
   const navigation = useNavigation();
@@ -63,9 +64,7 @@ const Register = () => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <View style={styles.maskImg}>
-          <Image source={images.Mask} />
-        </View>
+        <Photo />
         <View style={{ flexDirection: "row" }}>
           <Icon
             name="account-outline"
@@ -197,11 +196,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     // justifyContent: "center",
     // backgroundColor: "#746ABA",
-  },
-  maskImg: {
-    backgroundColor: "#FFFFFF1A",
-    padding: 5,
-    borderRadius: 100,
   },
   input: {
     paddingHorizontal: 40,

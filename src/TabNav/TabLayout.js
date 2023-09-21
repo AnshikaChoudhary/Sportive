@@ -115,7 +115,7 @@ export default function TabLayout() {
           }}
         />
         <Tab.Screen
-          name="Setting"
+          name="Settings"
           component={Setting}
           options={{
             headerLeft: (props) => (
