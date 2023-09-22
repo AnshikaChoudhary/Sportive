@@ -43,11 +43,49 @@ const Profile = () => {
           Jaipur, Rajasthan 302020
         </Text>
       </View>
-      <Btn
-        style={styles.loginBtn}
-        TextStyles={{ fontSize: 16, color: "#FFF" }}
-        title="Edit Profile"
-      />
+      <View style={{ alignItems: "center" }}>
+        <Btn
+          style={styles.loginBtn}
+          TextStyles={{ fontSize: 16, color: "#FFF" }}
+          title="Edit Profile"
+        />
+      </View>
+      <Text
+        style={{
+          color: "#FFFFFFE5",
+          fontWeight: "700",
+          fontSize: 20,
+          margin: 20,
+        }}
+      >
+        All Shortcuts
+      </Text>
+      <View style={styles.blocks}>
+        <View style={styles.shortcut}>
+          <Image source={images.ShortCut1} />
+          <Text style={styles.shortcutItems}>Recruit</Text>
+        </View>
+        <View style={styles.shortcut}>
+          <Image source={images.ShortCut2} />
+          <Text style={styles.shortcutItems}>Chat Inbox</Text>
+        </View>
+      </View>
+      <View style={styles.blocks}>
+        <View style={styles.shortcut}>
+          <Image source={images.ShortCut3} />
+          <Text style={styles.shortcutItems}>My Group</Text>
+        </View>
+        <View style={styles.shortcut}>
+          <Image source={images.ShortCut4} />
+          <Text style={styles.shortcutItems}>My Feeds</Text>
+        </View>
+      </View>
+      <View style={styles.blocks}>
+        <View style={styles.shortcut}>
+          <Image source={images.ShortCut5} />
+          <Text style={styles.shortcutItems}>Change Password</Text>
+        </View>
+      </View>
     </ScrollView>
   );
 };
@@ -60,6 +98,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     margin: 20,
+    marginVertical: 10,
   },
   follow: {
     alignItems: "center",
@@ -94,7 +133,25 @@ const styles = StyleSheet.create({
   loginBtn: {
     width: "100%",
     paddingVertical: 12,
-    alignItems: "center",
+  },
+  blocks: {
+    flexDirection: "row",
+    marginHorizontal: 20,
+    marginVertical: 10,
+    justifyContent: "space-between",
+  },
+  shortcut: {
+    backgroundColor: "#FFFFFF33",
+    borderWidth: 1,
+    borderColor: "#fff",
+    borderRadius: 10,
+    padding: 10,
+    width: "48%",
+  },
+  shortcutItems: {
+    color: "#FFFFFFCC",
+    fontWeight: "500",
+    fontSize: 16,
   },
 });
 export default Profile;

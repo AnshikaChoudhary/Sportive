@@ -13,10 +13,16 @@ import { useNavigation } from "@react-navigation/native";
 import Caption from "../../components/post/Caption";
 import Video from "../../components/post/Video";
 import Requirements from "../../components/post/Requirements";
+import Album from "../../components/import/Album";
 
 const Feed = () => {
   const navigation = useNavigation();
-  const DATA = [{ post: Caption }, { post: Video }, { post: Requirements }];
+  const DATA = [
+    { post: Caption },
+    { post: Video },
+    { post: Requirements },
+    { post: Album },
+  ];
   const Item = ({ title }) => (
     // console.log('title',title.image)
     // console.log('title',item.title)
@@ -24,6 +30,7 @@ const Feed = () => {
       <Caption />
       <Video />
       <Requirements />
+      <Album />
     </View>
   );
   return (

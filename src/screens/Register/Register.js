@@ -81,7 +81,11 @@ const Register = () => {
             color="#FFFFFF99"
             style={styles.icons}
           />
-          <InputBox placeholder={"Phone number"} style={styles.input} />
+          <InputBox
+            placeholder={"Phone number"}
+            keyboardType={"numeric"}
+            style={styles.input}
+          />
         </View>
         <View style={{ flexDirection: "row" }}>
           <Icon
@@ -90,7 +94,11 @@ const Register = () => {
             color="#FFFFFF99"
             style={styles.icons}
           />
-          <InputBox placeholder={"Email Id"} style={styles.input} />
+          <InputBox
+            placeholder={"Email Id"}
+            keyboardType={"email-address"}
+            style={styles.input}
+          />
         </View>
         <View style={{ flexDirection: "row" }}>
           <Icon

@@ -10,6 +10,9 @@ function InputBox(Props) {
       <TextInput
         placeholderTextColor="#FFFFFF80"
         placeholder={Props.placeholder}
+        multiline={Props.multiline}
+        keyboardType={Props.keyboardType}
+        numberOfLines={Props.numberOfLines}
         style={[styles.entry, Props.style, styles.inputStyle]}
       />
     </View>

@@ -32,15 +32,24 @@ const Setting = () => {
         <Icon name="delete-outline" color="#FFFFFF80" size={24} />
         <Text style={[styles.terms, styles.shift]}>Delete account</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={[styles.setting]}>
+      <TouchableOpacity
+        style={[styles.setting]}
+        onPress={() => navigation.navigate("Contact Us")}
+      >
         <Icon name="progress-question" color="#FFFFFF80" size={24} />
         <Text style={[styles.terms, styles.shift]}>Contact Us</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={[styles.setting]}>
+      <TouchableOpacity
+        style={[styles.setting]}
+        onPress={() => navigation.navigate("Terms and Conditions")}
+      >
         <Icon name="shield-alert-outline" color="#FFFFFF80" size={24} />
         <Text style={[styles.terms, styles.shift]}>Terms and Conditions</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={[styles.setting]}>
+      <TouchableOpacity
+        style={[styles.setting]}
+        onPress={() => navigation.navigate("Privacy Policy")}
+      >
         <Icon name="shield-alert-outline" color="#FFFFFF80" size={24} />
         <Text style={[styles.terms, styles.shift]}>Privacy Policy</Text>
       </TouchableOpacity>

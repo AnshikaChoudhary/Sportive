@@ -16,4 +16,11 @@ export const images = {
   Post1: require("../assets/Images/post-1.png"),
   Post2: require("../assets/Images/post-2.png"),
   Post3: require("../assets/Images/post-3.png"),
+  ShortCut1: require("../assets/Images/ShortcutIcon1.png"),
+  ShortCut2: require("../assets/Images/ShortcutIcon2.png"),
+  ShortCut3: require("../assets/Images/ShortcutIcon3.png"),
+  ShortCut4: require("../assets/Images/ShortcutIcon4.png"),
+  ShortCut5: require("../assets/Images/ShortcutIcon5.png"),
+  AtheletSession: require("../assets/Images/athelet.png"),
+  AtheletSession2: require("../assets/Images/athelet2.png"),
 };

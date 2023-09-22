@@ -90,9 +90,15 @@ const CmpltUrProfile = () => {
         <View>
           <InputBox
             placeholder={"Contact With any team/collage"}
+            multiline={true}
             style={styles.input}
           />
-          <InputBox placeholder={"Description"} style={[styles.input]} />
+          <InputBox
+            placeholder={"Description"}
+            multiline={true}
+            numberOfLines={5}
+            style={[styles.input]}
+          />
         </View>
         <Btn
           style={styles.loginBtn}
