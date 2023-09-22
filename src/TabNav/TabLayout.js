@@ -12,7 +12,7 @@ const Tab = createBottomTabNavigator();
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
 import Home from "../screens/TabScreens/Home";
-import Chats from "../screens/TabScreens/Chats";
+import Group from "../screens/TabScreens/Group";
 import Setting from "../screens/TabScreens/Setting";
 import Profile from "../screens/TabScreens/Profile";
 import Notification from "../screens/TabScreens/Notification";
@@ -52,8 +52,8 @@ export default function TabLayout() {
           }}
         />
         <Tab.Screen
-          name="Chats"
-          component={Chats}
+          name="Group"
+          component={Group}
           options={{
             headerLeft: (props) => (
               <Icon

@@ -15,6 +15,7 @@ import Live from "../screens/homeScreens/Live";
 import PrivacyPolicy from "../screens/PrivacyPolicy";
 import TermsConditions from "../screens/TermsConditions";
 import ContactUs from "../screens/ContactUs";
+import MyFeeds from "../screens/profileScreens/MyFeeds";
 const Stack = createNativeStackNavigator();
 
 const Layout = () => {
@@ -37,6 +38,7 @@ const Layout = () => {
         <Stack.Screen name="Terms and Conditions" component={TermsConditions} />
         <Stack.Screen name="Privacy Policy" component={PrivacyPolicy} />
         <Stack.Screen name="Contact Us" component={ContactUs} />
+        <Stack.Screen name="My Feed" component={MyFeeds} />
       </Stack.Group>
     </Stack.Navigator>
   );

@@ -1,10 +1,19 @@
-import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import { images } from "../../assets/images";
+import { useNavigation } from "@react-navigation/native";
 import Photo from "../../components/import/Photo";
 import Btn from "../../components/TochableOpacity/btn";
 
 const Profile = () => {
+  const navigation = useNavigation();
   return (
     <ScrollView style={styles.container}>
       <View style={styles.details}>
@@ -61,30 +70,33 @@ const Profile = () => {
         All Shortcuts
       </Text>
       <View style={styles.blocks}>
-        <View style={styles.shortcut}>
+        <TouchableOpacity style={styles.shortcut}>
           <Image source={images.ShortCut1} />
           <Text style={styles.shortcutItems}>Recruit</Text>
-        </View>
-        <View style={styles.shortcut}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.shortcut}>
           <Image source={images.ShortCut2} />
           <Text style={styles.shortcutItems}>Chat Inbox</Text>
-        </View>
+        </TouchableOpacity>
       </View>
       <View style={styles.blocks}>
-        <View style={styles.shortcut}>
+        <TouchableOpacity style={styles.shortcut}>
           <Image source={images.ShortCut3} />
           <Text style={styles.shortcutItems}>My Group</Text>
-        </View>
-        <View style={styles.shortcut}>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.shortcut}
+          onPress={() => navigation.navigate("My Feed")}
+        >
           <Image source={images.ShortCut4} />
           <Text style={styles.shortcutItems}>My Feeds</Text>
-        </View>
+        </TouchableOpacity>
       </View>
       <View style={styles.blocks}>
-        <View style={styles.shortcut}>
+        <TouchableOpacity style={styles.shortcut}>
           <Image source={images.ShortCut5} />
           <Text style={styles.shortcutItems}>Change Password</Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
