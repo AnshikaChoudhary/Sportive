@@ -12,10 +12,16 @@ import DetailPage from "../screens/DetailPage";
 import CmpltUrProfile from "../screens/Register/cmpltUrProfile";
 import Feed from "../screens/homeScreens/feed";
 import Live from "../screens/homeScreens/Live";
-import PrivacyPolicy from "../screens/PrivacyPolicy";
-import TermsConditions from "../screens/TermsConditions";
-import ContactUs from "../screens/ContactUs";
+import PrivacyPolicy from "../screens/settingScreens/PrivacyPolicy";
+import TermsConditions from "../screens/settingScreens/TermsConditions";
+import ContactUs from "../screens/settingScreens/ContactUs";
 import MyFeeds from "../screens/profileScreens/MyFeeds";
+
+import ChatInbox from "../screens/homeScreens/ChatInbox";
+import CreatePost from "../screens/homeScreens/createPost";
+import JobPost from "../screens/CreatePostScreens/JobPost";
+import POST from "../components/import/POST";
+
 const Stack = createNativeStackNavigator();
 
 const Layout = () => {
@@ -35,10 +41,34 @@ const Layout = () => {
         <Stack.Screen name="Complete Your Profile" component={CmpltUrProfile} />
         <Stack.Screen name="Feed" component={Feed} />
         <Stack.Screen name="Live" component={Live} />
+        <Stack.Screen name="Create Post" component={CreatePost} />
+        <Stack.Screen
+          name="Chat Inbox"
+          component={ChatInbox}
+          options={{
+            headerRight: (props) => (
+              <View
+                style={{
+                  flexDirection: "row",
+                  // justifyContent: "space-between",
+                }}
+              >
+                <Icon name="magnify" size={20} color="#FFFFFFB2" />
+                <Icon name="dots-vertical" size={20} color="#FFFFFF" />
+              </View>
+            ),
+          }}
+        />
+
         <Stack.Screen name="Terms and Conditions" component={TermsConditions} />
         <Stack.Screen name="Privacy Policy" component={PrivacyPolicy} />
         <Stack.Screen name="Contact Us" component={ContactUs} />
         <Stack.Screen name="My Feed" component={MyFeeds} />
+        <Stack.Screen
+          name="Job Post"
+          component={JobPost}
+          options={{ headerRight: (props) => <POST /> }}
+        />
       </Stack.Group>
     </Stack.Navigator>
   );

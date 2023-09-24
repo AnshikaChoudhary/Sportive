@@ -2,8 +2,8 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import Btn from "../components/TochableOpacity/btn";
-import InputBox from "../components/inputBox/inputBox";
+import Btn from "../../components/TochableOpacity/btn";
+import InputBox from "../../components/inputBox/inputBox";
 
 const ContactUs = () => {
   const navigation = useNavigation();

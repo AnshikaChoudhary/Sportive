@@ -23,4 +23,6 @@ export const images = {
   ShortCut5: require("../assets/Images/ShortcutIcon5.png"),
   AtheletSession: require("../assets/Images/athelet.png"),
   AtheletSession2: require("../assets/Images/athelet2.png"),
+  ChatPhoto: require("../assets/Images/chatPhoto.png"),
+  PostBackColor: require("../assets/Images/postBackColor.png"),
 };

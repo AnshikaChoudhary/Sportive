@@ -30,13 +30,13 @@ const Home = () => {
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.topButtons}
-            onPress={() => navigation.navigate("")}
+            onPress={() => navigation.navigate("Create Post")}
           >
             <Image source={images.Add} />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.topButtons}
-            onPress={() => navigation.navigate("")}
+            onPress={() => navigation.navigate("Chat Inbox")}
           >
             <Image source={images.Forum} />
           </TouchableOpacity>
