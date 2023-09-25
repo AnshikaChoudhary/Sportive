@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Sportive",
-    "slug": "Sportive",
+    "slug": "sportive365",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,16 +15,24 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sportive365.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.sportive365.app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1909754c-d580-4d48-9888-29b63bbc9345"
+      }
+    },
+    "owner": "tneupaney"
   }
 }
