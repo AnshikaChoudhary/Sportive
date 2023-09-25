@@ -25,4 +25,5 @@ export const images = {
   AtheletSession2: require("../assets/Images/athelet2.png"),
   ChatPhoto: require("../assets/Images/chatPhoto.png"),
   PostBackColor: require("../assets/Images/postBackColor.png"),
+  Recruit: require("../assets/Images/Recruit.png"),
 };
