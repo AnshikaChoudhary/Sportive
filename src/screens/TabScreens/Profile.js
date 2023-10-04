@@ -70,11 +70,17 @@ const Profile = () => {
         All Shortcuts
       </Text>
       <View style={styles.blocks}>
-        <TouchableOpacity style={styles.shortcut}>
+        <TouchableOpacity
+          style={styles.shortcut}
+          onPress={() => navigation.navigate("MyRecruit")}
+        >
           <Image source={images.ShortCut1} />
           <Text style={styles.shortcutItems}>Recruit</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.shortcut}>
+        <TouchableOpacity
+          style={styles.shortcut}
+          onPress={() => navigation.navigate("Chat Inbox")}
+        >
           <Image source={images.ShortCut2} />
           <Text style={styles.shortcutItems}>Chat Inbox</Text>
         </TouchableOpacity>

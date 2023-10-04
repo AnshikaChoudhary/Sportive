@@ -21,6 +21,8 @@ import ChatInbox from "../screens/homeScreens/ChatInbox";
 import CreatePost from "../screens/homeScreens/createPost";
 import JobPost from "../screens/CreatePostScreens/JobPost";
 import POST from "../components/import/POST";
+import MyRecruit from "../screens/profileScreens/Recruit/MyRecruit";
+import MyFollows from "../screens/profileScreens/Follow/MyFollows";
 
 const Stack = createNativeStackNavigator();
 
@@ -68,6 +70,20 @@ const Layout = () => {
           name="Job Post"
           component={JobPost}
           options={{ headerRight: (props) => <POST /> }}
+        />
+        <Stack.Screen
+          name="MyRecruit"
+          component={MyRecruit}
+          options={{
+            title: "", // Hide the header title
+          }}
+        />
+        <Stack.Screen
+          name="MyFollows"
+          component={MyFollows}
+          options={{
+            title: "", // Hide the header title
+          }}
         />
       </Stack.Group>
     </Stack.Navigator>

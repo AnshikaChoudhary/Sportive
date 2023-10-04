@@ -1,11 +1,17 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Modal,
+} from "react-native";
 import React, { useState } from "react";
 import { images } from "../../assets/images";
 import InputBox from "../../components/inputBox/inputBox";
 import { Dropdown } from "react-native-element-dropdown";
 import { useNavigation } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/MaterialIcons";
-import Modal from "react-native-modal";
 
 const CreatePost = () => {
   const navigation = useNavigation();
