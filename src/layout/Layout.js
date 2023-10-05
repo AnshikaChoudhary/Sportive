@@ -23,6 +23,8 @@ import JobPost from "../screens/CreatePostScreens/JobPost";
 import POST from "../components/import/POST";
 import MyRecruit from "../screens/profileScreens/Recruit/MyRecruit";
 import MyFollows from "../screens/profileScreens/Follow/MyFollows";
+import ForgotPassword from "../screens/forgotPassword/ForgotPassword";
+import CreateGroup from "../screens/GroupScreens/CreateGroup";
 
 const Stack = createNativeStackNavigator();
 
@@ -41,9 +43,11 @@ const Layout = () => {
         }}
       >
         <Stack.Screen name="Complete Your Profile" component={CmpltUrProfile} />
+        <Stack.Screen name="Forgot Password" component={ForgotPassword} />
         <Stack.Screen name="Feed" component={Feed} />
         <Stack.Screen name="Live" component={Live} />
         <Stack.Screen name="Create Post" component={CreatePost} />
+        <Stack.Screen name="Create Group" component={CreateGroup} />
         <Stack.Screen
           name="Chat Inbox"
           component={ChatInbox}

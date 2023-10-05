@@ -99,7 +99,12 @@ const Login = () => {
           <InputBox placeholder={"Password"} style={styles.input} />
         </View>
         <View style={{ alignItems: "flex-end", width: "90%" }}>
-          <Text style={styles.underlineText}>Forgot Password?</Text>
+          <Text
+            style={styles.underlineText}
+            onPress={() => navigation.navigate("Forgot Password")}
+          >
+            Forgot Password?
+          </Text>
         </View>
         <Btn
           style={[styles.loginBtn, { borderRadius: 20 }]}
