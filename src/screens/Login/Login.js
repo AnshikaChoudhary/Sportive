@@ -10,97 +10,54 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import SwitchSelector from "react-native-switch-selector";
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { images } from "../../assets/images";
 import Btn from "../../components/TochableOpacity/btn";
-import InputBox from "../../components/inputBox/inputBox";
 import HoriLine from "../../components/horiLine/HoriLine";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { Logs } from 'expo'
+import { Loginapi } from "../../_services/auth.service";
+
+Logs.enableExpoCliLogging()
+
 const Login = () => {
   const navigation = useNavigation();
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  // const storeData = async (id, name) => {
-  //   try {
-  //     const jsonValue = JSON.stringify(id);
-  //     await AsyncStorage.setItem("user_id", jsonValue);
-
-  //     await AsyncStorage.setItem("username", name);
-
-  //     setTimeout(() => {
-  //       navigation.navigate("TabLayout");
-  //     }, 100);
-  //   } catch (e) {
-  //     Alert.alert(e.toString());
-  //     // saving error
-  //   }
-  // };
-
-  const handleChange = (e) => {
-    console.log(e);
-  }
 
   const handleLogin = (e) => {
 
+    var InputsValue = {
+      'email': email,
+      'password': password
+    }
 
     e.preventDefault();
-    Loginapi(InputsValue).then((response) => {
+    Loginapi(InputsValue).then(async (response) => {
       // setIsLoding(false)
       console.log(response, "response");
       if (response?.success) {
-        toast.success("login success");
+
         let data = response?.data;
         let users = response?.data;
-        sessionStorage.setItem("role", users?._id);
-        sessionStorage.setItem("token_key", data?.token);
-        sessionStorage.setItem("users", JSON.stringify(users));
-        setTimeout(() => {
-          window.location.href = "/dashboard";
-        }, 100);
+        try {
+          //await AsyncStorage.setItem("role", users?._id);
+          await AsyncStorage.setItem("token_key", data?.token);
+          await AsyncStorage.setItem("users", JSON.stringify(users));
+          console.log(data);
+          navigation.navigate("TabLayout")
+
+        } catch (error) {
+          console.log(error);
+        }
       } else if (response?.message === 'YOU_ARE_NOT_A_ADMIN') {
-        document.getElementById('errorMsg').textContent = "You are not authorized to login to Admin";
+        //document.getElementById('errorMsg').textContent = "You are not authorized to login to Admin";
       } else {
-        document.getElementById('errorMsg').textContent = "Invalid User Name or password.";
+        Alert.alert('Invalid Email/Password');
+        //document.getElementById('errorMsg').textContent = "Invalid User Name or password.";
       }
     });
   };
-
-
-  // const fetchData = () => {
-  //   console.log(password + ":" + username);
-  //   fetch("http://62.72.31.254:5000/auth/login", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       "x-testing-platform": "web",
-  //       "x-testing-version": "1.0.0",
-  //       Connection: "keep-alive",
-  //       Accept: "*/*",
-  //       "Accept-Encoding": "gzip,deflate,br",
-  //       "Accept-Language": "en",
-  //     },
-  //     body: JSON.stringify({
-  //       username: username,
-  //       password: password,
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then(
-  //       (result) => {
-  //         if (result.success) {
-  //           storeData(result.data.user._id, result.data.username);
-  //         } else {
-  //           Alert.alert("UserName or Password is wrong");
-  //         }
-  //       },
-  //       (error) => {
-  //         console.log(error.toString());
-  //         Alert.alert("ERROR HERE", error.toString());
-  //       }
-  //     );
-  // };
 
   return (
     <ScrollView>
@@ -113,9 +70,10 @@ const Login = () => {
             color="#FFFFFF99"
             style={styles.icons}
           />
-          <InputBox
+          <TextInput
             placeholder={"Email Id/ Phone number"}
             style={styles.input}
+            onChangeText={(setEmail)}
           />
         </View>
 
@@ -126,9 +84,11 @@ const Login = () => {
             color="#FFFFFF99"
             style={styles.icons}
           />
-          <InputBox placeholder={"Password"} style={styles.input} onChangeText={(text) => {
-            console.log("INPUT_TEXT:", text);
-          }} />
+          <TextInput
+            placeholder={"Password"}
+            style={styles.input}
+            onChangeText={(setPassword)}
+          />
         </View>
         <View style={{ alignItems: "flex-end", width: "90%" }}>
           <Text style={styles.underlineText}>Forgot Password?</Text>
@@ -137,7 +97,7 @@ const Login = () => {
           style={[styles.loginBtn, { borderRadius: 20 }]}
           TextStyles={{ fontSize: 16, color: "#FFF" }}
           title="Login"
-          onPress={() => navigation.navigate("TabLayout")}
+          onPress={(e) => handleLogin(e)}
         />
         <View
           style={{
@@ -187,7 +147,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
     marginVertical: 10,
     // borderWidth: 0.1,
-    width: "95%",
+    width: "90%",
+    height: 50,
+    backgroundColor: 'rgba(255, 255, 255, 0.10)',
+    borderRadius: 10,
+    paddingLeft: 50,
+    color: 'white',
   },
   icons: {
     zIndex: 1,

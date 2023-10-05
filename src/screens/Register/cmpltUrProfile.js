@@ -3,21 +3,28 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  TextInput,
   ScrollView,
 } from "react-native";
 import React, { useState } from "react";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import DatePicker from 'react-native-date-picker';
+
 import { useNavigation } from "@react-navigation/native";
 import { Dropdown } from "react-native-element-dropdown";
-import InputBox from "../../components/inputBox/inputBox";
 import Btn from "../../components/TochableOpacity/btn";
 
 const data = [];
-const CmpltUrProfile = () => {
+const CmpltUrProfile = (props) => {
+
   const navigation = useNavigation();
   const [radioButton, setRadioButton] = useState("Yes");
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
+
+  const [date, setDate] = useState(new Date())
+  const [open, setOpen] = useState(false)
+
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -46,7 +53,19 @@ const CmpltUrProfile = () => {
           />
         </View>
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-          <InputBox placeholder={"DOB"} style={styles.input} />
+          <TextInput placeholder={"DOB"} style={styles.input} onPressIn={() => setOpen(true)} />
+          <DatePicker
+            modal
+            open={open}
+            date={date}
+            onConfirm={(date) => {
+              setOpen(false)
+              setDate(date)
+            }}
+            onCancel={() => {
+              setOpen(false)
+            }}
+          />
           <Icon
             name="calendar-outline"
             size={25}
@@ -54,10 +73,14 @@ const CmpltUrProfile = () => {
             style={styles.icons}
           />
         </View>
-        <View>
-          <InputBox placeholder={"Occupation"} style={styles.input} />
-          <InputBox placeholder={"Hometown"} style={styles.input} />
-          <InputBox placeholder={"Height"} style={styles.input} />
+        <View style={{ flexDirection: "row" }}>
+          <TextInput placeholder={"Occupation"} style={styles.input} />
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <TextInput placeholder={"Hometown"} style={styles.input} />
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <TextInput placeholder={"Height"} style={styles.input} />
         </View>
         <View style={styles.vReal}>
           <TouchableOpacity
@@ -87,13 +110,15 @@ const CmpltUrProfile = () => {
             <Text style={styles.innerThings}>Uncommitted</Text>
           </TouchableOpacity>
         </View>
-        <View>
-          <InputBox
+        <View style={{ flexDirection: "row" }}>
+          <TextInput
             placeholder={"Contact With any team/collage"}
             multiline={true}
             style={styles.input}
           />
-          <InputBox
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <TextInput
             placeholder={"Description"}
             multiline={true}
             numberOfLines={5}
@@ -142,10 +167,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   input: {
-    //     paddingHorizontal: 40,
+    paddingHorizontal: 40,
     marginVertical: 10,
-    // borderWidth: 0.1,
-    width: "95%",
+    width: "90%",
+    height: 50,
+    backgroundColor: 'rgba(255, 255, 255, 0.10)',
+    borderRadius: 10,
+    color: 'white',
   },
   icons: {
     zIndex: 1,

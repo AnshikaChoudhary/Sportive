@@ -11,55 +11,48 @@ import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
+
 import { images } from "../../assets/images";
 import Btn from "../../components/TochableOpacity/btn";
-import InputBox from "../../components/inputBox/inputBox";
 import HoriLine from "../../components/horiLine/HoriLine";
 import Photo from "../../components/import/Photo";
+// import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
 const Register = () => {
   const navigation = useNavigation();
-  const [myicon, setmyIcon] = useState(1);
-  // const [name, setName] = useState("");
-  // const [username, setUsername] = useState("");
-  // const [mobile, setMobileNumber] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [text, onChangeValue] = React.useState("");
+  const [documentRead, setDocumentRead] = useState(false);
+  const [name, setName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [location, setLocation] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
 
-  // const fetchData = () => {
-  //   fetch("http://62.72.31.254:5000/auth/signup", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       "x-testing-platform": "web",
-  //       "x-testing-version": "1.0.0",
-  //       Connection: "keep-alive",
-  //       Accept: "*/*",
-  //       "Accept-Encoding": "gzip,deflate,br",
-  //       "Accept-Language": "en",
-  //     },
-  //     body: JSON.stringify({
-  //       name: name,
-  //       username: username,
-  //       mobile_number: mobile,
-  //       password: password,
-  //       confirm_password: password,
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then(
-  //       (result) => {
-  //         if (result.success) {
-  //           navigation.navigate("Login");
-  //         } else {
-  //           Alert.alert("Enter your details");
-  //         }
-  //       },
-  //       (error) => {
-  //         Alert.alert(error.toString());
-  //       }
-  //     );
-  // };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    var userData = {};
+    if (password === passwordConfirm) {
+      if (String(name).length <= 0) { Alert.alert("Please fill the Name"); return }
+      if (String(phoneNumber).length <= 0) { Alert.alert("Please fill phone number"); return }
+      if (String(email).length <= 0) { Alert.alert("Please fill the Email Address"); return }
+      if (String(password).length <= 0) { Alert.alert("Please fill password"); return }
+      if (String(location).length <= 0) { Alert.alert("Please fill your location"); return }
+      if (!documentRead) { Alert.alert("Please verify you have read our Terms & Conditions"); return }
+
+      if (name && phoneNumber && email && password && location && documentRead) {
+
+        userData.name = name;
+        userData.phoneNumber = phoneNumber;
+        userData.email = email;
+        userData.password = password;
+        userData.location = location;
+        navigation.navigate("Complete Your Profile", userData)
+      }
+    } else {
+      Alert.alert("Password and Confirm Password did not match")
+    }
+  }
 
   return (
     <ScrollView>
@@ -72,7 +65,7 @@ const Register = () => {
             color="#FFFFFF99"
             style={styles.icons}
           />
-          <InputBox placeholder={"Name"} style={styles.input} />
+          <TextInput placeholder={"Name"} style={styles.input} onChangeText={(setName)} />
         </View>
         <View style={{ flexDirection: "row" }}>
           <Icon
@@ -81,10 +74,11 @@ const Register = () => {
             color="#FFFFFF99"
             style={styles.icons}
           />
-          <InputBox
+          <TextInput
             placeholder={"Phone number"}
             keyboardType={"numeric"}
             style={styles.input}
+            onChangeText={(setPhoneNumber)}
           />
         </View>
         <View style={{ flexDirection: "row" }}>
@@ -94,10 +88,11 @@ const Register = () => {
             color="#FFFFFF99"
             style={styles.icons}
           />
-          <InputBox
+          <TextInput
             placeholder={"Email Id"}
             keyboardType={"email-address"}
             style={styles.input}
+            onChangeText={(setEmail)}
           />
         </View>
         <View style={{ flexDirection: "row" }}>
@@ -107,7 +102,8 @@ const Register = () => {
             color="#FFFFFF99"
             style={styles.icons}
           />
-          <InputBox placeholder={"Location"} style={styles.input} />
+          <TextInput placeholder={"Location"} style={styles.input} onChangeText={(setLocation)} />
+
         </View>
         <View style={{ flexDirection: "row" }}>
           <Icon
@@ -116,7 +112,7 @@ const Register = () => {
             color="#FFFFFF99"
             style={styles.icons}
           />
-          <InputBox placeholder={"Password"} style={styles.input} />
+          <TextInput placeholder={"Password"} secureTextEntry={true} style={styles.input} onChangeText={(setPassword)} />
         </View>
         <View style={{ flexDirection: "row" }}>
           <Icon
@@ -125,25 +121,27 @@ const Register = () => {
             color="#FFFFFF99"
             style={styles.icons}
           />
-          <InputBox placeholder={"Confirm Password"} style={styles.input} />
+          <TextInput placeholder={"Confirm Password"} secureTextEntry={true} style={styles.input} onChangeText={(setPasswordConfirm)} />
         </View>
         <View
           style={{ flexDirection: "row", width: "90%", marginVertical: 10 }}
         >
-          {myicon ? (
-            <Icon
-              name="checkbox-blank-outline"
-              size={25}
-              color="#FFFFFF99"
-              onPress={() => setmyIcon(0)}
-              style={{ marginHorizontal: 15 }}
-            />
-          ) : (
+          {console.log(documentRead)}
+          {documentRead ? (
             <Icon
               name="checkbox-marked-outline"
               size={25}
               color="#fff"
-              onPress={() => setmyIcon(1)}
+              onPress={() => setDocumentRead(false)}
+              style={{ marginHorizontal: 15 }}
+            />
+
+          ) : (
+            <Icon
+              name="checkbox-blank-outline"
+              size={25}
+              color="#FFFFFF99"
+              onPress={() => setDocumentRead(true)}
               style={{ marginHorizontal: 15 }}
             />
           )}
@@ -159,7 +157,7 @@ const Register = () => {
           style={styles.loginBtn}
           TextStyles={{ fontSize: 16, color: "#FFF" }}
           title="Sign Up"
-          onPress={() => navigation.navigate("Complete Your Profile")}
+          onPress={(e) => handleRegister(e)}
         />
         <View
           style={{
@@ -209,7 +207,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
     marginVertical: 10,
     // borderWidth: 0.1,
-    width: "95%",
+    width: "90%",
+    height: 50,
+    backgroundColor: 'rgba(255, 255, 255, 0.10)',
+    borderRadius: 10,
+    paddingLeft: 50,
+    color: 'white',
   },
   icons: {
     zIndex: 1,
