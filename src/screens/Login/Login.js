@@ -19,8 +19,8 @@ import HoriLine from "../../components/horiLine/HoriLine";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 const Login = () => {
   const navigation = useNavigation();
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   // const storeData = async (id, name) => {
   //   try {
@@ -37,6 +37,36 @@ const Login = () => {
   //     // saving error
   //   }
   // };
+
+  const handleChange = (e) => {
+    console.log(e);
+  }
+
+  const handleLogin = (e) => {
+
+
+    e.preventDefault();
+    Loginapi(InputsValue).then((response) => {
+      // setIsLoding(false)
+      console.log(response, "response");
+      if (response?.success) {
+        toast.success("login success");
+        let data = response?.data;
+        let users = response?.data;
+        sessionStorage.setItem("role", users?._id);
+        sessionStorage.setItem("token_key", data?.token);
+        sessionStorage.setItem("users", JSON.stringify(users));
+        setTimeout(() => {
+          window.location.href = "/dashboard";
+        }, 100);
+      } else if (response?.message === 'YOU_ARE_NOT_A_ADMIN') {
+        document.getElementById('errorMsg').textContent = "You are not authorized to login to Admin";
+      } else {
+        document.getElementById('errorMsg').textContent = "Invalid User Name or password.";
+      }
+    });
+  };
+
 
   // const fetchData = () => {
   //   console.log(password + ":" + username);
@@ -96,7 +126,9 @@ const Login = () => {
             color="#FFFFFF99"
             style={styles.icons}
           />
-          <InputBox placeholder={"Password"} style={styles.input} />
+          <InputBox placeholder={"Password"} style={styles.input} onChangeText={(text) => {
+            console.log("INPUT_TEXT:", text);
+          }} />
         </View>
         <View style={{ alignItems: "flex-end", width: "90%" }}>
           <Text style={styles.underlineText}>Forgot Password?</Text>
