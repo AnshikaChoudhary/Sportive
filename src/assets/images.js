@@ -26,4 +26,5 @@ export const images = {
   ChatPhoto: require("../assets/Images/chatPhoto.png"),
   PostBackColor: require("../assets/Images/postBackColor.png"),
   Recruit: require("../assets/Images/Recruit.png"),
+  OtherGrp: require("../assets/Images/Ellipse358.png"),
 };
