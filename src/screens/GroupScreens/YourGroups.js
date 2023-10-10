@@ -37,15 +37,15 @@ const YourGroups = () => {
     // console.log('title',title.image)
     // console.log('title',item.title)
     <View style={styles.item}>
-      <Image source={title.image} />
-      <View>
+      <Image source={title.image} style={styles.img} />
+      <View style={{ margin: 10 }}>
         <Text style={styles.nameGroupText}>{title.nameGroup}</Text>
         <Text style={styles.updateText}>{title.update}</Text>
       </View>
     </View>
   );
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.contain}>
         <View style={{ justifyContent: "space-between", flexDirection: "row" }}>
           <Text style={styles.heading}>Pinned</Text>
@@ -65,7 +65,7 @@ const YourGroups = () => {
           Become an admin or moderator of a group to see it listed here.
         </Text>
         <TouchableOpacity
-          onPress={() => navigation.navigate("CreateGroup")}
+          onPress={() => navigation.navigate("Create Group")}
           style={styles.btn}
         >
           <Text style={[styles.heading, { color: "#FFFFFFCC" }]}>
@@ -76,6 +76,7 @@ const YourGroups = () => {
       <Text style={styles.bigText}>Other</Text>
       <SafeAreaView>
         <FlatList
+          showsVerticalScrollIndicator={false}
           data={DATA}
           renderItem={({ item }) => <Item title={item} />}
           keyExtractor={(item) => item.id}
@@ -86,7 +87,7 @@ const YourGroups = () => {
 };
 const styles = StyleSheet.create({
   container: {
-    margin: 10,
+    marginVertical: 10,
   },
   contain: {
     borderRadius: 10,
@@ -95,6 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF1A",
     padding: 10,
     marginBottom: 20,
+    marginHorizontal: 10,
   },
   heading: {
     fontSize: 16,
@@ -127,7 +129,6 @@ const styles = StyleSheet.create({
   },
   item: {
     flexDirection: "row",
-    justifyContent: "space-between",
     backgroundColor: "#FFFFFF1A",
     borderBottomWidth: 1,
     borderColor: "#FFFFFF0D",
@@ -135,7 +136,7 @@ const styles = StyleSheet.create({
   },
   nameGroupText: {
     color: "#FFFFFFE5",
-    fontSize: 16,
+    //     fontSize: 16,
     fontWeight: "600",
     lineHeight: 22,
   },
@@ -144,6 +145,10 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "500",
     lineHeight: 22,
+  },
+  img: {
+    height: 60,
+    width: 60,
   },
 });
 export default YourGroups;

@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+} from "react-native";
 import InputBox from "../../components/inputBox/inputBox";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import ForYou from "../GroupScreens/ForYou";
@@ -9,7 +15,7 @@ import Discover from "../GroupScreens/Discover";
 const Group = () => {
   const [showPage, setShowPage] = useState(1);
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.mind}>
         <InputBox placeholder={"Search people"} style={styles.input} />
         <TouchableOpacity
@@ -68,7 +74,7 @@ const Group = () => {
           <Discover />
         </>
       )}
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({

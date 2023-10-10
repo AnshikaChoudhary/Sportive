@@ -6,7 +6,6 @@ import {
   ScrollView,
 } from "react-native";
 import React, { useState } from "react";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
 import { Dropdown } from "react-native-element-dropdown";
 import InputBox from "../../components/inputBox/inputBox";

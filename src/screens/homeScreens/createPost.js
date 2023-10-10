@@ -39,62 +39,60 @@ const CreatePost = () => {
             Gloria Sharma
           </Text>
           <View style={{ flexDirection: "row" }}>
-            <View style={styles.dropcol}>
-              <Dropdown
-                style={[styles.dropdown, isFocus && { borderColor: "#E254A4" }]}
-                placeholderStyle={styles.placeholderStyle}
-                selectedTextStyle={styles.selectedTextStyle}
-                inputSearchStyle={styles.inputSearchStyle}
-                iconStyle="menu-swap"
-                data={Public}
-                search
-                maxHeight={300}
-                iconColor="#FFFFFF80"
-                labelField="label"
-                valueField="value"
-                placeholder={!isFocus ? "Public" : "..."}
-                searchPlaceholder="Search..."
-                value={value}
-                onFocus={() => setIsFocus(true)}
-                onBlur={() => setIsFocus(false)}
-                onChange={(item) => {
-                  setValue(item.value);
-                  setIsFocus(false);
-                }}
-              />
-            </View>
-            <View style={styles.dropcol}>
-              <Dropdown
-                style={[styles.dropdown, isFocus && { borderColor: "#E254A4" }]}
-                placeholderStyle={styles.placeholderStyle}
-                selectedTextStyle={styles.selectedTextStyle}
-                inputSearchStyle={styles.inputSearchStyle}
-                iconStyle="menu-swap"
-                data={Album}
-                search
-                maxHeight={300}
-                iconColor="#FFFFFF80"
-                labelField="label"
-                valueField="value"
-                placeholder={!isFocus ? "Album" : "..."}
-                searchPlaceholder="Search..."
-                value={value}
-                onFocus={() => setIsFocus(true)}
-                onBlur={() => setIsFocus(false)}
-                onChange={(item) => {
-                  setValue(item.value);
-                  setIsFocus(false);
-                }}
-                renderLeftIcon={() => (
-                  <Icon
-                    name="add"
-                    size={20}
-                    color="#A099A8"
-                    onPress={toggleModal}
-                  />
-                )}
-              />
-              <Modal
+            <Dropdown
+              style={[styles.dropdown, isFocus && { borderColor: "#E254A4" }]}
+              placeholderStyle={styles.placeholderStyle}
+              selectedTextStyle={styles.selectedTextStyle}
+              inputSearchStyle={styles.inputSearchStyle}
+              iconStyle="menu-swap"
+              data={Public}
+              search
+              maxHeight={300}
+              iconColor="#FFFFFF80"
+              labelField="label"
+              valueField="value"
+              placeholder={!isFocus ? "Public" : "..."}
+              searchPlaceholder="Search..."
+              value={value}
+              onFocus={() => setIsFocus(true)}
+              // onBlur={() => setIsFocus(false)}
+              onChange={(item) => {
+                setValue(item.value);
+                // setIsFocus(false);
+              }}
+            />
+
+            <Dropdown
+              style={[styles.dropdown, isFocus && { borderColor: "#E254A4" }]}
+              placeholderStyle={styles.placeholderStyle}
+              selectedTextStyle={styles.selectedTextStyle}
+              inputSearchStyle={styles.inputSearchStyle}
+              iconStyle="menu-swap"
+              data={Album}
+              search
+              maxHeight={300}
+              iconColor="#FFFFFF80"
+              labelField="label"
+              valueField="value"
+              placeholder={!isFocus ? "Album" : "..."}
+              searchPlaceholder="Search..."
+              value={value}
+              onFocus={() => setIsFocus(true)}
+              // onBlur={() => setIsFocus(false)}
+              onChange={(item) => {
+                setValue(item.value);
+                // setIsFocus(false);
+              }}
+              renderLeftIcon={() => (
+                <Icon
+                  name="add"
+                  size={20}
+                  color="#A099A8"
+                  onPress={toggleModal}
+                />
+              )}
+            />
+            {/* <Modal
                 style={styles.mode}
                 isVisible={isModalVisible}
                 deviceWidth={100}
@@ -135,8 +133,7 @@ const CreatePost = () => {
                   <Icon name="add" size={20} color="#FFFFFF99" />
                   <Text style={styles.postName}>Polls</Text>
                 </TouchableOpacity>
-              </Modal>
-            </View>
+              </Modal> */}
           </View>
         </View>
       </View>
@@ -163,7 +160,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   // dropcol: { width: "45%" },
-  dropcol: {
+  dropdown: {
     borderRadius: 10,
     marginVertical: 10,
     marginRight: 10,
@@ -172,6 +169,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF1A",
     width: "40%",
   },
+
   placeholderStyle: {
     // fontSize: 16,
     color: "#FFFFFFCC",
@@ -184,7 +182,6 @@ const styles = StyleSheet.create({
     // paddingVertical: 5,
   },
   inputSearchStyle: {
-    // height: 40,
     fontSize: 16,
   },
   posts: {

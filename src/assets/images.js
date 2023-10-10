@@ -27,4 +27,5 @@ export const images = {
   PostBackColor: require("../assets/Images/postBackColor.png"),
   Recruit: require("../assets/Images/Recruit.png"),
   OtherGrp: require("../assets/Images/Ellipse358.png"),
+  LogoPlaceholder: require("../assets/Images/Logoplaceholder.png"),
 };
