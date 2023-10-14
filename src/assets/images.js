@@ -28,4 +28,5 @@ export const images = {
   Recruit: require("../assets/Images/Recruit.png"),
   OtherGrp: require("../assets/Images/Ellipse358.png"),
   LogoPlaceholder: require("../assets/Images/Logoplaceholder.png"),
+  AlbumImage: require("../assets/Images/AlbumImage.png"),
 };

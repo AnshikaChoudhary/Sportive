@@ -25,6 +25,9 @@ import MyRecruit from "../screens/profileScreens/Recruit/MyRecruit";
 import MyFollows from "../screens/profileScreens/Follow/MyFollows";
 import ForgotPassword from "../screens/forgotPassword/ForgotPassword";
 import CreateGroup from "../screens/GroupScreens/CreateGroup";
+import PollDetails from "../screens/CreatePostScreens/Poll/PollDetails";
+import CreatePoll from "../screens/CreatePostScreens/Poll/CreatePoll";
+import SelectAlbum from "../screens/CreatePostScreens/SelectAlbum";
 
 const Stack = createNativeStackNavigator();
 
@@ -46,7 +49,18 @@ const Layout = () => {
         <Stack.Screen name="Forgot Password" component={ForgotPassword} />
         <Stack.Screen name="Feed" component={Feed} />
         <Stack.Screen name="Live" component={Live} />
-        <Stack.Screen name="Create Post" component={CreatePost} />
+        <Stack.Screen
+          name="Create Post"
+          component={CreatePost}
+          options={{ headerRight: (props) => <POST /> }}
+        />
+        <Stack.Screen
+          name="Create Poll"
+          component={CreatePoll}
+          options={{ headerRight: (props) => <POST /> }}
+        />
+        <Stack.Screen name="Poll Details" component={PollDetails} />
+        <Stack.Screen name="Select Album" component={SelectAlbum} />
         <Stack.Screen name="Create Group" component={CreateGroup} />
         <Stack.Screen
           name="Chat Inbox"
@@ -70,11 +84,7 @@ const Layout = () => {
         <Stack.Screen name="Privacy Policy" component={PrivacyPolicy} />
         <Stack.Screen name="Contact Us" component={ContactUs} />
         <Stack.Screen name="My Feed" component={MyFeeds} />
-        <Stack.Screen
-          name="Job Post"
-          component={JobPost}
-          options={{ headerRight: (props) => <POST /> }}
-        />
+        <Stack.Screen name="Job Post" component={JobPost} />
         <Stack.Screen
           name="MyRecruit"
           component={MyRecruit}
